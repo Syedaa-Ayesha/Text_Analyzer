@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analyzer</title>
+    <!-- Google Fonts Link for Font Selection -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <h3>Text Analyzer</h3>
+            <div class="features">
+                <select id="fontSelector" class="fontSelector" onchange="applyFont()">
+                    <option value="select the font">Font</option>
+                    <option value="Roboto">Roboto</option>
+                    <option value="Open Sans">Open Sans</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+                <select name="" id="caseSelector" class="cases" onchange="applyCase()">
+                    <option value="select the Case">Case</option>
+                    <option value="uppercase" >UPPERCASE</option>
+                    <option value="lowercase">lowercase</option>
+                    <option value="capitalize">Capitalize</option>
+                    <option value="camelcase">camelCase</option>
+                </select>
+                 <span class="manipulation">
+                    <img src="images/format_bold_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" class="bold"
+                        onclick="makeBold()" style="height: 20px; color: black;padding-top: 2px;" alt="">
+                    <img src="images/format_italic_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" , class="italic"
+                        onclick="makeItalic()" style="height: 20px; padding-top: 2px;" alt="">
+                    <img src="images/format_underlined_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" class="underline"
+                        onclick="makeUnderline()" style="height:20px;padding-top: 2px;" alt="">
+                </span>
+             <span class="alignment">
+                    <span class="material-symbols-outlined" onclick="alignSelectedTextRight()"><img src="images/format_align_right_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px; padding-top: 2px;" alt=""></span>
+                    <span class="material-symbols-outlined" onclick="alignSelectedTextleft()"><img src="images/format_align_left_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px; padding-top: 2px;" alt=""></span>
+                    <span class="material-symbols-outlined" onclick="alignSelectedTextCenter()"><img src="images/format_align_justify_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px; padding-top: 2px;" alt="" ></span>
+                    <span class="material-symbols-outlined" onclick="alignSelectedTextJustify()"><img src="images/format_align_center_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px; padding-top: 2px;" alt=""></span>
+                </span>
+                <span class="fontsize">
+                    <button class="font-size" onclick="fontSizeIncrement()"><img src="images/text_increase_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px; padding-top: 2px;" alt=""></button>
+                    <button class="font-size" onclick="fontSizeDecrement()" ><img src="images/text_decrease_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" style="height: 20px; padding-top: 2px;" alt=""></button>
+                </span>
+                <span class="vowels-and-consonantcount">
+                    <button class="vowels_and_consonant_count" onclick="highlightVowelsAndConsonants()">Vowels and Consonant
+                        count</button>
+                </span>
+                <span class="longest-word">
+                    <button class="longest_word" onclick="highlightLongestWord()">Longest Word</button>
+                </span>
+                <span class="shortest-word">
+                    <button class="shortest_word" onclick="highlightShortestWord()">Shortest Word</button>
+                </span>
+                <span class="keyword-search">
+                    <button class="keyword_search" onclick="highlightSelectedWord()">Search Word</button>
+                </span>  
+            </div>
+            <div name="" id="editor" contenteditable="true"></div>
+            <span class="counter">
+                <div><span id="c_counter">Character: 0<span></div>
+                <div><span id="w_counter">Word: 0</span></div>
+                <div><span id="sent_counter">Sentence: 0</span></div>
+                <div><span id="unq_word">Unique word: 0</span></div>
+            </span>
+        </div>
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
